@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js" integrity="sha512-zJYu9ICC+mWF3+dJ4QC34N9RA0OVS1XtPbnf6oXlvGrLGNB8egsEzu/5wgG90I61hOOKvcywoLzwNmPqGAdATA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="network.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <div id="links">
+        <a href="../Get(Table)/index.html"><div>GET</div></a>
+        <a href="../Post/index.html"><div>POST</div></a>
+        <a href="../sortData/index.html"><div>SORT</div></a>
+    </div>
+    
+    <div id="data-div">
+        <div id="sub-data">
+            <h1>Add Category</h1>
+            <div><input type="text" class="input" id="name-input" placeholder="Name"></div>
+            <div><input type="text" class="input" id="desc-input" placeholder="Description"></div>
+            <div>
+                <button id="add-button" onclick="add()">Add</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="app.js"></script>
+</html>
