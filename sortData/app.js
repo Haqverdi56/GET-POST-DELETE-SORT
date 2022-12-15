@@ -72,4 +72,36 @@ axios.get("https://northwind.vercel.app/api/orders")
             console.log(el);
         }
     })
+
+    res.data.map(q => {
+        let allSum = 0;
+        q.details.forEach(function (e) {
+            let belovedPrice = q.details[0].unitPrice;
+            let belovedQuantity = q.details[0].quantity;
+            let belovedDiscount = q.details[0].discount;
+            let sum = (belovedPrice * belovedQuantity) * (1 - belovedDiscount);
+            allSum += sum;
+        })
+        q.totalAmount = allSum;
+    })
+
+    let ordersData = [];
+    res.data.forEach(element => {
+        let customer = ordersData.find(q => q.customerId == element.customerId);
+        if (!customer) {
+            let newCustomer = {
+                customerId: element.customerId,
+                customerTotalAmount: element.totalAmount
+            };
+            ordersData.push(newCustomer);
+        }
+        else {
+            customer.customerTotalAmount = customer.customerTotalAmount + element.totalAmount;
+        }
+    });
+
+    let sortedCustomer = ordersData.sort((a, b) => b.customerTotalAmount - a.customerTotalAmount);
+    console.log("Beloved ", sortedCustomer[0]);
+    console.log("Hated ", sortedCustomer[sortedCustomer.length - 1]);
 })
+
