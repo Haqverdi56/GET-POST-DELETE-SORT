@@ -54,8 +54,22 @@ axios.get("https://northwind.vercel.app/api/products")
 axios.get("https://northwind.vercel.app/api/customers")
 .then(res => {
     res.data.forEach(el => {
-        if(el.address.city == "London") {
-            console.log(el);
+        if(el.address?.city == "London") {
+            // console.log(el);
         } 
+    })
+})
+
+
+
+// BONUS 
+// 2. display orders on console between year 1996 and 1997
+
+axios.get("https://northwind.vercel.app/api/orders")
+.then(res=>{
+    res.data.forEach(el=>{
+        if(el.orderDate.substring(0,4) == 1996 && el.orderDate.substring(0,4) == 1997) {
+            console.log(el);
+        }
     })
 })
