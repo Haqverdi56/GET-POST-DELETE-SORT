@@ -68,7 +68,7 @@ axios.get("https://northwind.vercel.app/api/customers")
 axios.get("https://northwind.vercel.app/api/orders")
 .then(res=>{
     res.data.forEach(el=>{
-        if(el.orderDate.substring(0,4) == 1996 && el.orderDate.substring(0,4) == 1997) {
+        if(el.orderDate.substring(0,4) == 1996 || el.orderDate.substring(0,4) == 1997) {
             console.log(el);
         }
     })
